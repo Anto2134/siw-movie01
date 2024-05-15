@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati della Ricerca</title>
+</head>
+
+<body>
+    <div><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
+    <h2>Risultati della Ricerca</h2>
+    <ul>
+        <!-- Itera sulla lista di film e mostra le informazioni di ciascun film -->
+        <div th:if="${film==null || film.isEmpty()}">Non ci sono film di quell'anno nel sistema</div>
+
+        <th:block th:each="film : ${film}">
+            <li>
+                <strong>Titolo:</strong> <span th:text="${film.title}"></span><br>
+                <strong>Anno:</strong> <span th:text="${film.year}"></span><br>
+                <span><img width="5%" th:src=${film.urlImage} /></span>
+                <!-- Aggiungi altre informazioni del film se necessario -->
+            </li>
+
+        </th:block>
+    </ul>
+</body>
+
+</html>
